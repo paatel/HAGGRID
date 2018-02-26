@@ -1,0 +1,31 @@
+<div class="container mt-3">
+  <div class="row">
+    All items
+  </div>
+  <div class="row">
+    <% @items.each do |item| %>
+    <div class="col-4">
+      <div class="flat-card">
+        <div class="flat-card-image">
+
+        </div>
+        <div class="flat-card-content">
+          <div class="flat-card-title">
+            <h4><%= item.name %></h4>
+          </div>
+          <div class="flex">
+            <p><%= item.price %></p>
+            <p><%= item.stats %></p>
+          </div>
+        </div>
+        <div class="flat-card-actions">
+          <% link_to 'More info', item_path(item.id) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="map">
+    <img src="https://pre00.deviantart.net/9033/th/pre/f/2012/057/7/7/north_sword_coast_by_mikeschley-d4r3mql.jpg" alt="map" style="width: auto; height: 750px;">
+  </div>
+</div>
