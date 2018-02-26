@@ -15,7 +15,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'sinatra', '1.0'
+# gem 'sinatra', '1.0'
 
 
 group :development do
