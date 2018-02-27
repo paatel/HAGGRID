@@ -22,6 +22,10 @@
 </div>
 
 <%= link_to 'Back to items', items_path %>
-<%= link_to 'Add a review', review_item_path %>
-
+<br>
+<%= link_to 'Delete',
+             item_path(@item),
+                         method: :delete,
+                         data: { confirm: 'Are you sure?' } %>
+<%= render "haggle/die_roll" %>
 
