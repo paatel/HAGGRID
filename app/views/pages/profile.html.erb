@@ -1,0 +1,43 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-6">
+      <h2>Profile</h2>
+        <p>First name: <%= current_user.first_name %></p>
+        <p>Last name: <%= current_user.last_name %></p>
+        <p>Address: <%= current_user.address %></p>
+        <p>Email: <%= current_user.email %></p>
+        <p>Rating: </p> <% 3.times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
+    </div>
+  </div>
+  <div class="row">
+    <h2>Your items</h2>
+  </div>
+  <div class="row">
+    <% @items.each do |item| %>
+    <div class="col-4">
+      <div class="flat-card">
+        <div class="flat-card-image">
+
+        </div>
+        <div class="flat-card-content">
+          <div class="flat-card-title">
+            <h4><%= item.name %></h4>
+          </div>
+          <div class="flex">
+            <p><%= item.price %></p>
+            <p><%= item.stats %></p>
+            <p><%= item.details %></p>
+          </div>
+        </div>
+        <div class="flat-card-actions">
+          <%= link_to 'Edit', edit_item_path(item) %>
+          <%= link_to 'Delete',
+              item_path(item),
+                         method: :delete,
+                         data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
