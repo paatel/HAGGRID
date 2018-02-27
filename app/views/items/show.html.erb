@@ -1,16 +1,27 @@
-<h2><%= @item.name %></h2>
-<p><%= @item.price %></p>
-<p><%= @item.stats %></p>
-<p><%= @item.details %></p>
+
+<div class="item_picture">
+  <!-- asset_path(@item.picture_url) -->
+  <p>(item picture)</p>
+</div>
+
+<div class="item_info">
+  <h2><%= @item.name %></h2>
+  <p><%= @item.price %></p>
+  <p><%= @item.stats %></p>
+  <p><%= @item.details %></p>
+</div>
+
+<div class="seller_info">
+  <p>(seller info)</p>
+  <h3>Reviews</h3>
+  <% @reviews = @item.reviews %>
+  <% @reviews.each do |review| %>
+    <% (review.rating).times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
+    <p><%= review.comment %></p>
+  <% end %>
+</div>
 
 <%= link_to 'Back to items', items_path %>
 <%= link_to 'Add a review', review_item_path %>
-<br>
-<h3>Reviews</h3>
-<% @reviews = @item.reviews %>
-<% @reviews.each do |review| %>
-<% (review.rating).times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
-<p><%= review.comment %></p>
-<% end %>
 
 
