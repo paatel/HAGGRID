@@ -1,6 +1,23 @@
 class ItemsController < ApplicationController
   before_action :set_item, only:[:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only:[:index, :show, :new, :create, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only:[:index, :show, :new, :create, :edit, :update, :destroy, :new_review, :create_review]
+
+  def new_review
+    @review = Review.new
+  end
+
+  def create_review
+    @review = Review.new(comment: params[:review][:comment], rating: params[:review][:rating])
+    @review.item = Item.find(params[:id])
+    @review.user = current_user
+    # @review.user2
+
+    if @review.save!
+      redirect_to item_path(@review.item)
+    else
+      render :new_review, notice: "Didn't work, please try again"
+    end
+  end
 
   def index
     @items = Item.all
