@@ -1,0 +1,7 @@
+<%= simple_form_for(@item) do |f| %>
+  <%= f.input :name, placeholder: "Cursed Socks" %>
+  <%= f.input :details, placeholder: "Damage Type: Poison" %>
+  <%= f.input :stats, placeholder: "Damage: 1d4" %>
+  <%= f.input :price, placeholder: "$10,250" %>
+  <%= f.button :submit, class: "btn btn-primary"  %>
+<% end %>
