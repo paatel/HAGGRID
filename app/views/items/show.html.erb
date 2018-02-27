@@ -3,12 +3,14 @@
 <p><%= @item.stats %></p>
 <p><%= @item.details %></p>
 
-<br>
-<%= link_to "Edit this item", edit_item_path(@item) %>
-<br>
 <%= link_to 'Back to items', items_path %>
+<%= link_to 'Add a review', review_item_path %>
 <br>
-<%= link_to 'Delete',
-             item_path(@item),
-                         method: :delete,
-                         data: { confirm: 'Are you sure?' } %>
+<h3>Reviews</h3>
+<% @reviews = @item.reviews %>
+<% @reviews.each do |review| %>
+<% (review.rating).times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
+<p><%= review.comment %></p>
+<% end %>
+
+
