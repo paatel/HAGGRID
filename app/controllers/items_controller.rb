@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only:[:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only:[:index, :show]
+  skip_before_action :authenticate_user!, only:[:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
     @items = Item.all
@@ -16,9 +16,10 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.user = current_user
 
-    if @item.save
-      redirect_to @item, notice: "Success, item added"
+    if @item.save!
+      redirect_to user_path(current_user), notice: "Success, item added"
     else
       render :new, notice: "Didn't work, please try again"
     end
@@ -35,13 +36,13 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to items_path
+    redirect_to user_path(current_user)
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :stats, :details, :user_id)
+    params.require(:item).permit(:name, :price, :stats, :details)
   end
 
   def set_item
