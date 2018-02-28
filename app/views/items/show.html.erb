@@ -6,7 +6,7 @@
 
 <div class="item_info">
   <h2><%= @item.name %></h2>
-  <h4>Price: </h4><%= image_tag('coins.png', size: '35') %><p><%= @item.price %></p>
+  <h4>Price: </h4><%= image_tag('coins.png', size: '35') %><p><%= @price %></p>
   <h4>Stats: </h4> <p><%= @item.stats %></p>
   <h4>Details: </h4> <p><%= @item.details %></p>
 </div>
@@ -20,7 +20,8 @@
   <% end %>
 </div>
 
+<%link_to 'Buy now' %>
 <%= link_to 'Back to items', items_path %>
 <%= link_to 'Add a review', reviews_item_path %>
-<%= render "haggle/die_roll" %>
-
+<%# render "haggle/die_roll" %>
+<%= link_to 'Haggle!',item_haggles_path(@item.id), method: :post %>
