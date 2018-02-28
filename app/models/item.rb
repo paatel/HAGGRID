@@ -5,4 +5,5 @@ class Item < ApplicationRecord
   validates :price, presence: true
   validates :details, presence: true
   validates :stats, presence: true
+  mount_uploader :photo, PhotoUploader
 end
