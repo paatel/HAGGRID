@@ -24,6 +24,14 @@ class ItemsController < ApplicationController
   end
 
   def show
+    multiplier = [0, 2, 1.25, 1, 1, 0.75, 0.5]
+
+    if Haggle.where(item: @item, user: current_user).empty?
+      @price = @item.price
+    else
+      haggle = Haggle.where(item: @item, user: current_user)[0]
+      @price = multiplier[haggle.roll]*@item.price
+    end
 
   end
 
