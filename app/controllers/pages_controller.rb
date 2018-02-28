@@ -5,7 +5,9 @@ class PagesController < ApplicationController
     @items = Item.where(user: current_user)
     @reviews = Review.where(seller: current_user)
     @rating = 0
+    
     if @reviews.length > 0
+
       @reviews.each do |review|
         @rating += review[:rating]
       end
