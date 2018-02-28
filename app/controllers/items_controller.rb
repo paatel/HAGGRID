@@ -9,8 +9,8 @@ class ItemsController < ApplicationController
   def create_review
     @review = Review.new(comment: params[:review][:comment], rating: params[:review][:rating])
     @review.item = Item.find(params[:id])
-    @review.user = current_user
-    # @review.user2
+    @review.buyer = current_user
+    @review.seller = @review.item.user
 
     if @review.save!
       redirect_to item_path(@review.item)
@@ -24,6 +24,14 @@ class ItemsController < ApplicationController
   end
 
   def show
+    multiplier = [0, 2, 2, 1.5, 0.8, 0.8, 0.5]
+
+    if Haggle.where(item: @item, user: current_user).empty?
+      @price = @item.price
+    else
+      haggle = Haggle.where(item: @item, user: current_user)[0]
+      @price = multiplier[haggle.roll]*@item.price
+    end
 
   end
 
