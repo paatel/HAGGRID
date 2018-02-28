@@ -42,10 +42,12 @@ ActiveRecord::Schema.define(version: 20180228190302) do
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
     t.bigint "item_id"
+    t.bigint "buyer_id"
+    t.bigint "seller_id"
+    t.index ["buyer_id"], name: "index_reviews_on_buyer_id"
     t.index ["item_id"], name: "index_reviews_on_item_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.index ["seller_id"], name: "index_reviews_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,4 +72,8 @@ ActiveRecord::Schema.define(version: 20180228190302) do
 
   add_foreign_key "haggles", "items"
   add_foreign_key "haggles", "users"
+
+  add_foreign_key "reviews", "users", column: "buyer_id"
+  add_foreign_key "reviews", "users", column: "seller_id"
+
 end
