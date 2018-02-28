@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     @items = Item.where(user: current_user)
     @reviews = Review.where(seller: current_user)
     @rating = 0
-    
+
     if @reviews.length > 0
 
       @reviews.each do |review|
@@ -16,6 +16,6 @@ class PagesController < ApplicationController
   end
 
   def home
-    @items = Item.all
+    @items = Item.all.limit(3)
   end
 end
