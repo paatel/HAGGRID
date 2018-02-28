@@ -6,7 +6,7 @@
         <p>Last name: <%= current_user.last_name %></p>
         <p>Address: <%= current_user.address %></p>
         <p>Email: <%= current_user.email %></p>
-        <p>Rating: </p> <% 3.times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
+        <p>Rating: </p> <% @rating.times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
     </div>
   </div>
   <div class="row">
