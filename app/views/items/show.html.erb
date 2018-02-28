@@ -1,27 +1,42 @@
 
-<div class="item_picture">
-  <!-- asset_path(@item.picture_url) -->
-  <%= cl_image_tag @item.photo, height: 300, width: 300, crop: :fill %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="item_picture">
+        <!-- asset_path(@item.picture_url) -->
+        <%= cl_image_tag @item.photo, height: 300, width: 300, crop: :fill %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="item_info">
+        <h2><%= @item.name %></h2>
+        <h4>Price: </h4><%= image_tag('coins.png', size: '35') %><p><%= @item.price %></p>
+        <h4>Stats: </h4> <p><%= @item.stats %></p>
+        <h4>Details: </h4> <p><%= @item.details %></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="seller_info">
+        <h3>Reviews</h3>
+        <% @reviews = @item.reviews %>
+        <% @reviews.each do |review| %>
+          <% (review.rating).times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
+          <p><%= review.comment %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <%link_to 'Buy now' %>
+      <%= link_to 'Back to items', items_path %>
+      <%= link_to 'Add a review', reviews_item_path %>
+      <%# render "haggle/die_roll" %>
+      <%= link_to 'Haggle!',item_haggles_path(@item.id), method: :post %>
+    </div>
+  </div>
 </div>
-
-<div class="item_info">
-  <h2><%= @item.name %></h2>
-  <h4>Price: </h4><%= image_tag('coins.png', size: '35') %><p><%= @price %></p>
-  <h4>Stats: </h4> <p><%= @item.stats %></p>
-  <h4>Details: </h4> <p><%= @item.details %></p>
-</div>
-
-<div class="seller_info">
-  <h3>Reviews</h3>
-  <% @reviews = @item.reviews %>
-  <% @reviews.each do |review| %>
-    <% (review.rating).times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
-    <p><%= review.comment %></p>
-  <% end %>
-</div>
-
-<%link_to 'Buy now' %>
-<%= link_to 'Back to items', items_path %>
-<%= link_to 'Add a review', reviews_item_path %>
-<%# render "haggle/die_roll" %>
-<%= link_to 'Haggle!',item_haggles_path(@item.id), method: :post %>
