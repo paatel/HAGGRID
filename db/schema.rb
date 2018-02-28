@@ -72,8 +72,6 @@ ActiveRecord::Schema.define(version: 20180228190302) do
 
   add_foreign_key "haggles", "items"
   add_foreign_key "haggles", "users"
-
   add_foreign_key "reviews", "users", column: "buyer_id"
   add_foreign_key "reviews", "users", column: "seller_id"
-
 end

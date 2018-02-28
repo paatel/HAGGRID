@@ -9,8 +9,8 @@ class ItemsController < ApplicationController
   def create_review
     @review = Review.new(comment: params[:review][:comment], rating: params[:review][:rating])
     @review.item = Item.find(params[:id])
-    @review.user = current_user
-    # @review.user2
+    @review.buyer = current_user
+    @review.seller = @review.item.user
 
     if @review.save!
       redirect_to item_path(@review.item)
