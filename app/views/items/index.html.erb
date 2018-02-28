@@ -14,12 +14,12 @@
             <h4><%= item.name %></h4>
           </div>
           <div class="flex">
-            <p><%= item.price %></p>
-            <p><%= item.stats %></p>
+            <h4>Price: </h4><%= image_tag('coins.png', size: '35') %><p><%= item.price %></p>
+            <h4>Stats: </h4><p><%= item.stats %></p>
           </div>
         </div>
         <div class="flat-card-actions">
-          <% link_to 'More info', item_path(item.id) %>
+          <%= link_to 'More info', item_path(item.id) %>
         </div>
       </div>
     </div>

@@ -3,5 +3,7 @@
   <%= f.input :details, placeholder: "Damage Type: Poison" %>
   <%= f.input :stats, placeholder: "Damage: 1d4" %>
   <%= f.input :price, placeholder: "$10,250" %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
