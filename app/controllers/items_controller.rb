@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
     else
       @items = Item.all
     end
+  end
 
   def create_haggle
     @item = Item.find(params[:id])
@@ -49,10 +50,6 @@ class ItemsController < ApplicationController
 
     @purchase.save!
     redirect_to item_path(@item), notice: "Congratulations, purchase successful"
-  end
-
-  def index
-    @items = Item.all
   end
 
   def show
