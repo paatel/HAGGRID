@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228190302) do
+ActiveRecord::Schema.define(version: 20180301204424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20180228190302) do
   create_table "haggles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "roll"
     t.bigint "user_id"
     t.bigint "item_id"
+    t.integer "price"
     t.index ["item_id"], name: "index_haggles_on_item_id"
     t.index ["user_id"], name: "index_haggles_on_user_id"
   end
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(version: 20180228190302) do
     t.bigint "user_id"
     t.string "photo"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "amount"
+    t.bigint "item_id"
+    t.bigint "buyer_id"
+    t.bigint "seller_id"
+    t.index ["buyer_id"], name: "index_purchases_on_buyer_id"
+    t.index ["item_id"], name: "index_purchases_on_item_id"
+    t.index ["seller_id"], name: "index_purchases_on_seller_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -72,6 +84,9 @@ ActiveRecord::Schema.define(version: 20180228190302) do
 
   add_foreign_key "haggles", "items"
   add_foreign_key "haggles", "users"
+  add_foreign_key "purchases", "items"
+  add_foreign_key "purchases", "users", column: "buyer_id"
+  add_foreign_key "purchases", "users", column: "seller_id"
   add_foreign_key "reviews", "users", column: "buyer_id"
   add_foreign_key "reviews", "users", column: "seller_id"
 end

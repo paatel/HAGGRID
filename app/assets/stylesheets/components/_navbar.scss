@@ -1,7 +1,7 @@
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: #772031;
+  background: linear-gradient(to bottom right, #772031, #a54257);
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -37,11 +37,15 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "Helvetica", Arial, apercu;
+  font-weight: lighter;
+  width: 120px;
 }
+
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: #c98695;
   text-decoration: none;
 }
 
@@ -76,46 +80,37 @@
   border-top: 1px solid #E6E6E6;
 }
 
+.dropdown-toggle {
+  color: white;
+}
+
 .search {
   width: 100%;
   position: relative
 }
 
-.searchTerm {
+.search-bar {
   float: left;
-  width: 50%;
-  border: 3px solid #0c0c0c;
+  margin-left: 30px;
+  width: 35%;
+  border: 1.4px solid #c98695;
   padding: 5px;
-  height: 36px;
-  border-radius: 5px;
+  height: 32px;
+  border-radius: 3px;
   outline: none;
-  color: #0c0c0c;
+  color: #262424;
 }
 
-.searchTerm:focus{
-  color: #0c0c0c;
-}
-
-.searchButton {
+.search-button {
   position: absolute;
-  // right: 500px;
+  margin-left: 1px;
   width: 40px;
-  height: 36px;
-  border: 1px solid #0c0c0c;
-  background: #0c0c0c;
+  height: 32px;
+  border: none;
+  background: transparent;
   text-align: center;
-  color: #fff;
-  border-radius: 5px;
+  color: #c98695;
+  border-radius: 4px;
   cursor: pointer;
   font-size: 20px;
 }
-
-/*Resize the wrap to see the search bar change!*/
-// .wrap{
-//   width: 30%;
-//   position: absolute;
-//   top:5%;
-//   left: 25%;
-//   transform: translate(-50%, -50%);
-// }
-

@@ -16,6 +16,22 @@
         <div class="btn btn-success">
           <%link_to 'BUY NOW' %>
         </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="item_info">
+        <h2><%= @item.name %></h2>
+        <h4>Price: </h4><%= image_tag('coins.png', size: '35') %>
+        <p>
+          <% if @haggles.any? %>
+            <%= @haggles.first.price %>
+          <% else %>
+            <%= @item.price %>
+          <%end%>
+        </p>
+        <h4>Stats: </h4> <p><%= @item.stats %></p>
+        <h4>Details: </h4> <p><%= @item.details %></p>
       </div>
       <div class="row">
         <div class="col-sm">col-sm</div>
@@ -38,6 +54,14 @@
     <% (review.rating).times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
     <p><%= review.comment %></p>
     <% end %>
+  <div class="row">
+    <div class="col-12">
+      <%= link_to 'Back to items', items_path %>
+      <%= link_to 'Add a review', reviews_item_path %>
+      <%# render "haggle/die_roll" %>
+      <%= link_to 'Buy now', purchase_item_path(@item), method: :post %>
+      <%= link_to 'Haggle!', haggle_item_path(@item), method: :post %>
+    </div>
   </div>
 </div>
 

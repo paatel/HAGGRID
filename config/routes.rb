@@ -4,12 +4,11 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'pages#profile', as: 'user'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items do
-    resources :haggles, only: :create
     member do
       get 'review', to: 'items#new_review'
       post 'review', to: 'items#create_review', as: 'reviews'
+      post 'haggle', to: 'items#create_haggle', as: 'haggle'
+      post 'purchase', to: 'items#create_purchase', as: 'purchase'
     end
   end
-  # get /items/1/review form
-  # post /items/1/review creates
 end
