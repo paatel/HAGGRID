@@ -20,7 +20,16 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    if params[:query].present?
+      sql_query = " \
+        items.name @@ :query \
+        OR items.details @@ :query \
+        OR items.stats @@ :query \
+      "
+      @items = Item.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @items = Item.all
+    end
   end
 
   def show
