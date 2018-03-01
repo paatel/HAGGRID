@@ -20,26 +20,14 @@
             <h2>Haggle Guide</h2>
             <p>Not sure who is selling authentic magicals? We've created a guide for magicians all around the world.</p>
             <div class="row">
+              <% @items.each do |item| %>
                 <div class="col-md-4">
                     <div class="thumbnail">
-                      <%= cl_image_tag(@items[0].photo, :alt => "item 1", height: 200, crop: :fill) %>
-                      <h2><%= @items[0].name%></h2>
+                      <%= cl_image_tag(item.photo, :alt => "item_picture", height: 200, crop: :fill) %>
+                      <h2><%= item.name%></h2>
                     </div>
                 </div>
-
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                      <%= cl_image_tag(@items[1].photo, :alt => "item 2", height: 200, crop: :fill) %>
-                      <h2><%= @items[1].name%></h2>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                      <%= cl_image_tag(@items[2].photo, :alt => "item 3", height: 200, crop: :fill) %>
-                      <h2><%= @items[2].name%></h2>
-                    </div>
-                </div>
+              <% end %>
             </div>
          </div>
     </div>
