@@ -11,7 +11,7 @@ $font-size-base: 18px;
 
 // Colors
 $gray-base:       $gray;
-$brand-primary:   $blue;
+$brand-primary:   $maroon;
 $brand-success:   $green;
 $brand-info:      $yellow;
 $brand-danger:    $red;
@@ -23,3 +23,55 @@ $border-radius-large: 2px;
 $border-radius-small: 2px;
 
 // Override other variables below!
+//** Background color for `<body>`.
+$body-bg:               #F2F4E7 !default;
+//** Global text color on `<body>`.
+$text-color:            $gray !default;
+
+//** Global textual link color.
+$link-color:            white !default;
+//** Link hover color set via `darken()` function.
+//** Link hover decoration.
+$link-hover-decoration: none !default;
+
+a {
+
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: white !important;
+  text-transform: bold !important;
+}
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                normal !default;
+
+$btn-default-color:              #333 !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             #ccc !default;
+
+$btn-primary-color:              white !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+
+$btn-success-color:              white !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             darken($btn-success-bg, 5%) !default;
+
+$btn-info-color:                 white !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                darken($btn-info-bg, 5%) !default;
+
+$btn-warning-color:              white !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+
+$btn-danger-color:               white !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+
+$btn-link-disabled-color:        $gray !default;

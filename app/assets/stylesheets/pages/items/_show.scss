@@ -1,3 +1,10 @@
+.show-container {
+  display: flex;
+  width: 800px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
 .item_info {
   background-color: white;
   box-shadow: 1px 1px 1px #dddddd;
