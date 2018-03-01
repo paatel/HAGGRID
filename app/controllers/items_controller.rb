@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only:[:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only:[:index, :show, :new, :create, :edit, :update, :destroy, :new_review, :create_review]
+  skip_before_action :authenticate_user!, only:[:index, :show, :new, :create, :edit, :update, :destroy, :new_review, :create_review, :create_haggle, :create_purchase]
 
   def new_review
     @review = Review.new
@@ -30,18 +30,33 @@ class ItemsController < ApplicationController
     else
       @items = Item.all
     end
+
+  def create_haggle
+    @item = Item.find(params[:id])
+    @haggle = Haggle.create!(item: @item, user: current_user)
+    redirect_to item_path(@item)
+  end
+
+  def create_purchase
+    @item = Item.find(params[:id])
+    @purchase = Purchase.new(item: @item, buyer: current_user, seller: @item.user)
+
+    if @item.haggles.where(user: current_user).first.present?
+      @purchase.amount = @item.haggles.where(user: current_user).first.price
+    else
+      @purchase.amount = @item.price
+    end
+
+    @purchase.save!
+    redirect_to item_path(@item), notice: "Congratulations, purchase successful"
+  end
+
+  def index
+    @items = Item.all
   end
 
   def show
-    multiplier = [0, 2, 2, 1.5, 0.8, 0.8, 0.5]
-
-    if Haggle.where(item: @item, user: current_user).empty?
-      @price = @item.price
-    else
-      haggle = Haggle.where(item: @item, user: current_user)[0]
-      @price = multiplier[haggle.roll]*@item.price
-    end
-
+    @haggles = @item.haggles
   end
 
   def new
