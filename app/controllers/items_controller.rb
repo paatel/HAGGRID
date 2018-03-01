@@ -36,20 +36,23 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @haggle = Haggle.create!(item: @item, user: current_user)
     redirect_to item_path(@item)
+
+    # haggle save check
   end
 
   def create_purchase
     @item = Item.find(params[:id])
     @purchase = Purchase.new(item: @item, buyer: current_user, seller: @item.user)
 
-    if @item.haggles.where(user: current_user).first.present?
-      @purchase.amount = @item.haggles.where(user: current_user).first.price
-    else
-      @purchase.amount = @item.price
-    end
+    haggle = @item.haggles.where(user: current_user).first
 
-    @purchase.save!
-    redirect_to item_path(@item), notice: "Congratulations, purchase successful"
+    @purchase.amount = haggle.present? ? haggle.price : @item.price
+
+    if @purchase.save
+      redirect_to item_path(@item), notice: "Congratulations, purchase successful"
+    else
+      redirect_to item_path(@item), notice: "Purchase unsuccessful, please try again"
+    end
   end
 
   def show
@@ -64,7 +67,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.user = current_user
 
-    if @item.save!
+    if @item.save
       redirect_to user_path(current_user), notice: "Success, item added"
     else
       render :new, notice: "Didn't work, please try again"
