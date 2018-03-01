@@ -19,6 +19,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def index
+    if params[:query].present?
+      sql_query = " \
+        items.name @@ :query \
+        OR items.details @@ :query \
+        OR items.stats @@ :query \
+      "
+      @items = Item.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @items = Item.all
+    end
+
   def create_haggle
     @item = Item.find(params[:id])
     @haggle = Haggle.create!(item: @item, user: current_user)
