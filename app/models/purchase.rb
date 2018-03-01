@@ -1,4 +1,4 @@
-class Review < ApplicationRecord
+class Purchase < ApplicationRecord
   belongs_to :item
   belongs_to :buyer,
              :class_name => "User",
@@ -8,5 +8,5 @@ class Review < ApplicationRecord
              :class_name => "User",
              :foreign_key => "seller_id"
 
-  validates :rating, presence: true, numericality: { greater_than: 0, less_than: 6}
+  validates :amount, numericality: { greater_than: 0}
 end

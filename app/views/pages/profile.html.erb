@@ -40,4 +40,28 @@
     </div>
     <% end %>
   </div>
+  <div class="row">
+    <h2>Your Purchases</h2>
+  </div>
+  <div class="row">
+    <% @purchases.each do |purchase| %>
+    <div class="col-4">
+      <div class="item-card">
+        <div class="item-card-image">
+
+        </div>
+        <div class="item-card-content">
+          <div class="item-card-title">
+            <h4><%= purchase.item.name %></h4>
+          </div>
+          <div class="flex">
+            <p><%= purchase.item.price %></p>
+            <p><%= purchase.item.stats %></p>
+            <p><%= purchase.item.details %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
