@@ -3,7 +3,6 @@
 </style>
 
 <div class="container">
-  <%= link_to 'Back to Items', :back, class: "back" %>
   <div class="grid text-center">
     <div class="card image">
       <div class="card-content">
@@ -15,27 +14,33 @@
     <div class="card info">
       <div class="card-content">
         <h2><%= @item.name %></h2>
-        <h4>Price: </h4><i class="fab fa-gg-circle"> <% if @haggles.any? %>
+        <h4>Price:
+          <i class="fab fa-gg-circle"> <% if @haggles.any? %>
             <%= @haggles.first.price %>
           <% else %>
             <%= @item.price %>
           <%end%></i>
-        <h4>Stats: </h4> <p><%= @item.stats %></p>
-        <h4>Details: </h4> <p><%= @item.details %></p>
-        <%# render "haggle/die_roll" %>
-        <%= link_to 'Buy now', purchase_item_path(@item), method: :post %>
-        <%= link_to 'Haggle!', haggle_item_path(@item), method: :post %>
+        </h4>
+        <h4 class="stats"><u>Stats</u></h4> <p><%= @item.stats %></p>
+        <h4 class="details"><u>Details</u></h4> <p><%= @item.details %></p>
+        <div class="buttons">
+          <%= link_to 'Buy Now', purchase_item_path(@item), method: :postm, class: "btn btn-buy" %>
+          <%= link_to 'Haggle!', haggle_item_path(@item), method: :post, class: "btn btn-haggle" %>
+        </div>
       </div>
     </div>
 
     <div class="card reviews">
       <div class="card-content">
-        <%= link_to 'Add a review', reviews_item_path %>
+        <%= link_to 'Add a Review', reviews_item_path, class: "btn btn-primary" %>
         <h3>Reviews</h3>
         <% @reviews = @item.reviews %>
         <% @reviews.each do |review| %>
-          <% (review.rating).times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
-          <p><%= review.comment %></p>
+          <div>
+            <% (review.rating).times do %> <i class="fa fa-star" style="color: gold" aria-hidden="true"></i><% end %>
+            <p><%= review.comment %></p>
+            <p>With love: <%= review.buyer.first_name %></p>
+          </div>
         <% end %>
       </div>
     </div>
