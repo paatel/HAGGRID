@@ -12,7 +12,7 @@
 .grid {
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 500px;
+  grid-template-rows: 600px;
   padding: 30px;
 }
 
@@ -39,7 +39,7 @@
 .info {
   grid-row: 1 / span 1;
   grid-column: 2 / span 1;
-  overflow: scroll;
+  // overflow: scroll;
 }
 
 .stats {
