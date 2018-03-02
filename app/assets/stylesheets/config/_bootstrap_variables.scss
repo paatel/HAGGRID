@@ -34,16 +34,10 @@ $link-color:            $maroon !default;
 //** Link hover decoration.
 $link-hover-decoration: none !default;
 
-a {
-
-}
-
 a:hover {
   text-decoration: none !important;
   text-transform: bold !important;
 }
-
-
 
 //== Buttons
 //
@@ -57,7 +51,7 @@ $btn-default-border:             #ccc !default;
 
 $btn-primary-color:              $maroon !default;
 $btn-primary-bg:                 white !default;
-$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+$btn-primary-border:             darken($btn-primary-bg, 20%) !default;
 
 $btn-success-color:              white !default;
 $btn-success-bg:                 $brand-success !default;
