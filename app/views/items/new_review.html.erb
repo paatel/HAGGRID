@@ -1,11 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div id="rating">
+
+      </div>
       <%= simple_form_for @review, url: reviews_item_path do |f| %>
       <%= f.input :comment %>
-      <%= f.input :rating %>
       <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
 </div>
+
+
