@@ -35,6 +35,15 @@
 .info {
   grid-row: 1 / span 1;
   grid-column: 2 / span 1;
+  overflow: scroll;
+}
+
+.stats {
+  padding-top: 30px;
+}
+
+.details {
+  padding-top: 20px;
 }
 
 .reviews {
@@ -42,6 +51,26 @@
   grid-column: 1 / span 2;
 }
 
-.back {
-  margin-left: 37px;
+.buttons {
+  padding-top: 30px;
+}
+
+.btn-buy {
+  color: white;
+  background-color: #772031;
+}
+
+.btn-buy:hover {
+  color: white;
+  background-color: #a54257;
+}
+
+.btn-haggle {
+  color: white;
+  background-color: #ff6e22;
+}
+
+.btn-haggle:hover {
+  color: white;
+  background-color: #ff8649;
 }
