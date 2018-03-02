@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <%= simple_form_for @review, url: reviews_item_path do |f| %>
       <%= f.input :comment %>
-      <%= f.input :rating %>
+      <div id="rating"></div>
       <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>
