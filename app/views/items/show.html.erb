@@ -24,7 +24,7 @@
         <h4>Details: </h4> <p><%= @item.details %></p>
         <%# render "haggle/die_roll" %>
         <%= link_to 'Buy now', purchase_item_path(@item), method: :post %>
-        <%= link_to 'Haggle!', haggle_item_path(@item), method: :post %>
+        <%= link_to 'Haggle!', haggle_item_path(@item), method: :post %><div id="dice" onclick="javascript:stopstart()"></div>
       </div>
     </div>
 
