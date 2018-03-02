@@ -5,16 +5,14 @@
 }
 
 .jumbotron {
-  background-image: url('banner.jpg');
+  // background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2), url('banner.jpg'));
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('banner.jpg');
   background-size: cover;
-  opacity: 0.7;
-  // background-repeat: no-repeat;
+  background-repeat: no-repeat;
   height: 300px;
 }
 
-.jumbotron-title {
-  h1 { color: white;
-  }
-  p { color: white;
-  }
+.jumbotron-text {
+  opacity: 1;
+  color: white !important;
 }

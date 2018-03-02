@@ -29,7 +29,7 @@ $body-bg:               #F2F4E7 !default;
 $text-color:            $gray !default;
 
 //** Global textual link color.
-$link-color:            white !default;
+$link-color:            $maroon !default;
 //** Link hover color set via `darken()` function.
 //** Link hover decoration.
 $link-hover-decoration: none !default;
@@ -40,9 +40,10 @@ a {
 
 a:hover {
   text-decoration: none !important;
-  color: white !important;
   text-transform: bold !important;
 }
+
+
 
 //== Buttons
 //
@@ -54,8 +55,8 @@ $btn-default-color:              #333 !default;
 $btn-default-bg:                 #fff !default;
 $btn-default-border:             #ccc !default;
 
-$btn-primary-color:              white !default;
-$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-color:              $maroon !default;
+$btn-primary-bg:                 white !default;
 $btn-primary-border:             darken($btn-primary-bg, 5%) !default;
 
 $btn-success-color:              white !default;

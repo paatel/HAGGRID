@@ -1,13 +1,8 @@
 <!-- <html> -->
-  <head>
-
-
-  </head> -->
-
     <div class="jumbotron">
       <div class="container">
-        <h1>HAGGRID</h1>
-        <p>Haggle for and get rid of magical things.</p>
+        <h1 class="jumbotron-text">HAGGRID</h1>
+        <p class="jumbotron-text">Haggle for and get rid of magical things.</p>
          <div class="btn btn-primary">
           <a href="#">Learn More</a>
          </div>
@@ -22,7 +17,8 @@
               <% @items.each do |item| %>
                 <div class="col-md-4">
                     <div class="thumbnail">
-                      <%= cl_image_tag(item.photo, :alt => "item_picture", height: 200, crop: :fill) %>
+                      <a class="cover-link" href="/"></a>
+                       <%= cl_image_tag(item.photo, :alt => "item_picture", height: 200, crop: :fill) %>
                       <h2><%= item.name%></h2>
                     </div>
                 </div>
@@ -31,7 +27,6 @@
          </div>
     </div>
 
-    <div class="learn-more">
     <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -52,6 +47,4 @@
       </div>
     </div>
   </div>
-<!--   </body>
-</html>
- -->
+
