@@ -11,7 +11,7 @@ function change() {
 function stopstart() {
   if(stopped) {
     stopped = false;
-    t = setInterval(change, 100);
+    t = setInterval(change, 200);
   } else {
     clearInterval(t);
     stopped = true;
