@@ -20,12 +20,13 @@
           <% else %>
             <%= @item.price %>
           <%end%></i>
+
         </h4>
         <h4 class="stats"><u>Stats</u></h4> <p><%= @item.stats %></p>
         <h4 class="details"><u>Details</u></h4> <p><%= @item.details %></p>
         <div class="buttons">
           <%= link_to 'Buy Now', purchase_item_path(@item), method: :postm, class: "btn btn-buy" %>
-          <%= link_to 'Haggle!', haggle_item_path(@item), method: :post, class: "btn btn-haggle" %>
+          <%= link_to 'Haggle!', haggle_item_path(@item), method: :post, class: "btn btn-haggle" %><div id="dice" onclick="javascript:stopstart()"></div>          
         </div>
       </div>
     </div>

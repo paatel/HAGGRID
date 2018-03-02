@@ -1,53 +1,54 @@
 <!-- <html> -->
 <style type="text/css">
-   body { background: #F2F4E7 !important; }
+body { background: #F2F4E7 !important; }
 </style>
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="jumbotron-text">HAGGRID</h1>
-        <p class="jumbotron-text">Haggle for and get rid of magical things.</p>
-         <div class="btn btn-primary">
-          <a href="#">Learn More</a>
-         </div>
-      </div>
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="jumbotron-text">HAGGRID</h1>
+    <p class="jumbotron-text">Haggle for and get rid of magical things.</p>
+    <div class="btn btn-primary">
+      <a href="#">Learn More</a>
     </div>
+  </div>
+</div>
 
-    <div class="haggle guide">
-         <div class="container">
-            <h2>Haggle Guide</h2>
-            <p>Not sure who is selling authentic magicals? We've created a guide for magicians all around our flat earth.</p>
-            <div class="row">
-              <% @items.each do |item| %>
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a class="cover-link" href="/"></a>
-                       <%= cl_image_tag(item.photo, :alt => "item_picture", height: 200, crop: :fill) %>
-                      <h2><%= item.name%></h2>
-                    </div>
-                </div>
-              <% end %>
-            </div>
-         </div>
-    </div>
+<div class="haggle guide">
+ <div class="container">
+  <h2>Haggle Guide</h2>
+  <p>Not sure who is selling authentic magicals? We've created a guide for magicians all around our flat earth.</p>
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="col-md-4">
+        <%= link_to item_path(item.id) do %>
+             <div class="thumbnail">
+               <%= cl_image_tag(item.photo, :alt => "item_picture", height: 200, crop: :fill) %>
+               <h2><%= item.name%></h2>
+             </div>
+       <% end %>
+     </div>
+   <% end %>
+ </div>
+</div>
+</div>
 
-    <div class="container">
-    <div class="row">
-        <div class="col-md-4">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
       <h3>Buy</h3>
       <p>From swords and daggers to castles and ships: buy from all types of people (new and used).</p>
       <p><a href="#">See how to buy from a verified seller</a></p>
-        </div>
-      <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
       <h3>Sell</h3>
       <p>Getting rid of your used sword? Got some extra potions?</p>
       <p><a href="#">Learn more about selling</a></p>
-      </div>
-      <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
       <h3>Trust and Safety</h3>
       <p>From Verified ID to our worldwide customer support team, we've got your back.</p>
       <p><a href="#">Learn about trust at HAGGRID</a></p>
-      </div>
-      </div>
     </div>
   </div>
+</div>
+</div>
 
