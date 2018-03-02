@@ -1,19 +1,22 @@
+<style type="text/css">
+body { background: #F2F4E7 !important; }
+</style>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6 .offset-md-3">
     <h1 align="center">All Items</h1>
   </div>
-  </div>
-  <div class="row">
-    <% @items.each do |item| %>
+</div>
+<div class="row">
+  <% @items.each do |item| %>
   <div class="col-md-3">
-      <div class="item-card">
+    <%= link_to item_path(item.id) do %>
+     <div class="thumbnail">
+      <%= cl_image_tag item.photo, height: 50, width: 50, crop: :fill %>
         <div class="item-card-image">
-
         </div>
         <div class="item-card-content">
           <div class="item-card-title">
-            <h4><%= item.name %></h4>
+            <h4 align="centre"><%= item.name %></h4>
           </div>
           <div class="flex">
             <h4>Price: </h4><i class="fab fa-gg-circle"> <%= item.price %></i>
@@ -21,12 +24,12 @@
           </div>
         </div>
         <div class="item-card-actions">
-          <%= link_to 'More info', item_path(item.id) %>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
+  <% end %>
 </div>
 <iframe style="width: 100%; height: 600px; position: relative; top: -102px; z-index: -1;" src="http://loremaps.azurewebsites.net/Maps/Faerun" frameborder="0"></iframe>
+
 
