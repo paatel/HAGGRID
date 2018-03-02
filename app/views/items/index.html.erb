@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4 offset-md-4">
-    <h1>All Items</h1>
+    <div class="col-md-6 .offset-md-3">
+    <h1 align="center">All Items</h1>
   </div>
   </div>
   <div class="row">
@@ -16,7 +16,7 @@
             <h4><%= item.name %></h4>
           </div>
           <div class="flex">
-            <h4>Price: </h4><%= image_tag('coins.png', size: '30') %><p><%= item.price %></p>
+            <h4>Price: </h4><i class="fab fa-gg-circle"> <%= item.price %></i>
             <h4>Stats: </h4><p><%= item.stats %></p>
           </div>
         </div>
