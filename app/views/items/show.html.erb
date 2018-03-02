@@ -5,7 +5,7 @@
 <div class="container">
   <div class="grid text-center">
     <div class="card image">
-      <div class="card-content">
+      <div class="">
         <!-- asset_path(@item.picture_url) -->
         <%= cl_image_tag @item.photo, height: 300, width: 300, crop: :fill %>
       </div>
@@ -26,7 +26,7 @@
         <h4 class="details"><u>Details</u></h4> <p><%= @item.details %></p>
         <div class="buttons">
           <%= link_to 'Buy Now', purchase_item_path(@item), method: :postm, class: "btn btn-buy" %>
-          <%= link_to 'Haggle!', haggle_item_path(@item), method: :post, class: "btn btn-haggle" %><div id="dice" onclick="javascript:stopstart()"></div>          
+          <%= link_to 'Haggle!', haggle_item_path(@item), method: :post, class: "btn btn-haggle" %><div id="dice" onclick="javascript:stopstart()"></div>
         </div>
       </div>
     </div>
@@ -47,3 +47,4 @@
     </div>
   </div>
 </div>
+

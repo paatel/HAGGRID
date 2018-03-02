@@ -11,7 +11,7 @@ body { background: #F2F4E7 !important; }
   <div class="col-md-3">
     <%= link_to item_path(item.id) do %>
      <div class="thumbnail">
-      <%= cl_image_tag item.photo, height: 50, width: 50, crop: :fill %>
+      <%= cl_image_tag item.photo, height: 100, width: 100, crop: :fill %>
         <div class="item-card-image">
         </div>
         <div class="item-card-content">
@@ -19,7 +19,9 @@ body { background: #F2F4E7 !important; }
             <h4 align="centre"><%= item.name %></h4>
           </div>
           <div class="flex">
-            <h4>Price: </h4><i class="fab fa-gg-circle"> <%= item.price %></i>
+            <h4>Price:
+              <i class="fab fa-gg-circle"> <%= item.price %></i>
+            </h4>
             <h4>Stats: </h4><p><%= item.stats %></p>
           </div>
         </div>
@@ -32,5 +34,3 @@ body { background: #F2F4E7 !important; }
 </div>
 <div style="background: #F2F4E7 !important; width: 100%; height: 110px; position: relative; z-index: +1;"></div>
 <iframe style="width: 100%; height: 1000px; position: relative; top: -102px;" src="http://loremaps.azurewebsites.net/Maps/Faerun" frameborder="0"></iframe>
-
-
