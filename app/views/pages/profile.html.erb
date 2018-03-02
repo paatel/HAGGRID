@@ -1,70 +1,69 @@
 <style type="text/css">
-   body { background: #F2F4E7 !important; }
+body { background: #F2F4E7 !important; }
 </style>
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-6">
-      <h2>Profile</h2>
+<div class="container">
+  <div class="text-center">
+    <div class="card profile">
+      <div class="card-content" >
+        <h2>Profile</h2>
         <p>First name: <%= current_user.first_name %></p>
         <p>Last name: <%= current_user.last_name %></p>
         <p>Address: <%= current_user.address %></p>
         <p>Email: <%= current_user.email %></p>
         <p>Rating: </p> <% @rating.times do %> <i class="fa fa-star" aria-hidden="true"></i><% end %>
-    </div>
-  </div>
-  <div class="row">
-    <h2>Your items</h2>
-  </div>
-  <div class="row">
-    <% @items.each do |item| %>
-    <div class="col-4">
-      <div class="item-card">
-        <div class="item-card-image">
-          <%= cl_image_tag item.photo, height: 100, width: 100, crop: :fill %>
-        </div>
-        <div class="item-card-content">
-          <div class="item-card-title">
-            <h4><%= item.name %></h4>
-          </div>
-          <div class="flex">
-            <p><%= item.price %></p>
-            <p><%= item.stats %></p>
-            <p><%= item.details %></p>
-          </div>
-        </div>
-        <div class="item-card-actions">
-          <%= link_to 'Edit', edit_item_path(item) %>
-          <%= link_to 'Delete',
-              item_path(item),
-                         method: :delete,
-                         data: { confirm: 'Are you sure?' } %>
-        </div>
       </div>
     </div>
-    <% end %>
-  </div>
-  <div class="row">
-    <h2>Your Purchases</h2>
-  </div>
-  <div class="row">
-    <% @purchases.each do |purchase| %>
-    <div class="col-4">
-      <div class="item-card">
-        <div class="item-card-image">
 
+    <div class="bottom-section-profile">
+      <div class="selling bottom-section-profile-child">
+        <div class="card-content">
+          <h2>Your items</h2>
         </div>
-        <div class="item-card-content">
-          <div class="item-card-title">
+        <div class="item-list-profile content">
+          <% @items.each do |item| %>
+          <div class="item-card">
+            <div class="item-card-image">
+              <%= cl_image_tag item.photo, height: 100, width: 100, crop: :fill %>
+            </div>
+
+            <div class="item-card-content">
+              <div class="item-card-title">
+                <h4><%= item.name %></h4>
+              </div>
+              <div class="flex">
+                <p>Price: <%= item.price %></p>
+                <p>Stats: <%= item.stats %></p>
+                <p>Details: <%= item.details %></p>
+              </div>
+            </div>
+
+            <div class="item-card-actions">
+              <%= link_to 'Edit', edit_item_path(item) %>
+              <%= link_to 'Delete',
+              item_path(item),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="card buying bottom-section-profile-child">
+        <div class="card-content">
+          <h2>Your Purchases</h2>
+          <% @purchases.each do |purchase| %>
             <h4><%= purchase.item.name %></h4>
-          </div>
-          <div class="flex">
-            <p><%= purchase.item.price %></p>
-            <p><%= purchase.item.stats %></p>
-            <p><%= purchase.item.details %></p>
-          </div>
+            <div class="flex">
+              <p>Price: <%= purchase.item.price %></p>
+              <p>Stats: <%= purchase.item.stats %></p>
+              <p>Details: <%= purchase.item.details %></p>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
-    <% end %>
+
   </div>
 </div>
+
